@@ -8,9 +8,9 @@ $(document).ready(function() {
 			slidesToScroll: 1,
 			slidesToShow: 1,
 			loop: true,
-			infinite: true,
+			// infinite: true,
 			autoplay: true,
-			autoplaySpeed: 5000,
+			autoplaySpeed: 15000,
     }
 
 		// Initialize all div with carousel class

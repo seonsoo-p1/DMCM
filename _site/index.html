@@ -131,39 +131,89 @@
 
 
 
-<section class="hero is-small is-light">
+
+
+<!-- DMCM 4-image carousel -->
+<section class="hero is-small is-light" id="dmcm-carousel">
   <div class="hero-body">
-    <div class="container">
-      <!-- <h2 class="title">Poster</h2> -->
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Project Preview</h2>
 
-      <!-- Clickable full-res poster -->
-      <a href="static/images/Total.png" target="_blank" aria-label="Open full poster in a new tab">
-        <figure class="image">
-          <!-- Make sure the path is /static/images/... (your original had a typo 'iamges') -->
-          <img src="static/images/Total.png" alt="DMCM Poster" style="border:1px solid #eee; border-radius:8px;">
-        </figure>
-      </a>
+      <!-- IMPORTANT: do not reuse an existing carousel ID -->
+      <div class="carousel dmcm-carousel">
+        <!-- Slide 1 -->
+        <div class="item">
+          <a href="static/images/1.png" target="_blank" aria-label="Open image 1 in new tab">
+            <figure class="image dmcm-frame">
+              <img src="static/images/1.png" alt="Disentangle & Recombine overview" loading="lazy">
+            </figure>
+          </a>
+          <!-- <h3 class="subtitle has-text-centered mt-2">
+            Disentangle task factors and recombine without extra data.
+          </h3> -->
+        </div>
 
+        <!-- Slide 2 -->
+        <div class="item">
+          <a href="static/images/2.png" target="_blank" aria-label="Open image 2 in new tab">
+            <figure class="image dmcm-frame">
+              <img src="static/images/2.png" alt="Context sharing across real/sim" loading="lazy">
+            </figure>
+          </a>
+          <!-- <h3 class="subtitle has-text-centered mt-2">
+            Share contexts across short real data and diverse sim data.
+          </h3> -->
+        </div>
 
-      </p>
+        <!-- Slide 3 -->
+        <div class="item">
+          <a href="static/images/3.png" target="_blank" aria-label="Open image 3 in new tab">
+            <figure class="image dmcm-frame">
+              <img src="static/images/3.png" alt="Application to Go1 dynamics" loading="lazy">
+            </figure>
+          </a>
+          <!-- <h3 class="subtitle has-text-centered mt-2">
+            Apply to quadruped dynamics: compose terrain & robot inner contexts.
+          </h3> -->
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="item">
+          <a href="static/images/4.png" target="_blank" aria-label="Open image 4 in new tab">
+            <figure class="image dmcm-frame">
+              <img src="static/images/4.png" alt="Compare policies under OOD" loading="lazy">
+            </figure>
+          </a>
+          <!-- <h3 class="subtitle has-text-centered mt-2">
+            OOD performance: multi, disentangled context policy wins.
+          </h3> -->
+        </div>
+      </div>
+
+      <!-- Fallback if JS is disabled -->
+      <noscript>
+        <div class="columns is-multiline">
+          <div class="column is-12"><img class="dmcm-fallback" src="static/images/1.png" alt=""></div>
+          <div class="column is-12"><img class="dmcm-fallback" src="static/images/2.png" alt=""></div>
+          <div class="column is-12"><img class="dmcm-fallback" src="static/images/3.png" alt=""></div>
+          <div class="column is-12"><img class="dmcm-fallback" src="static/images/4.png" alt=""></div>
+        </div>
+      </noscript>
     </div>
   </div>
 </section>
 
 
 
-
-
-
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Video Presentation</h2>
+      <h2 class="title is-3 has-text-centered">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-15">
           <div class="video-container">
             <iframe
-              src="https://www.youtube.com/embed/zmmtaOqBMEA"
+              src="https://www.youtube.com/embed/uHPdh32uIW8"
               title="DMCM Video Presentation"
               frameborder="0"
               allow="autoplay; encrypted-media; picture-in-picture"
@@ -176,16 +226,20 @@
   </div>
 </section>
 
+
+
+
 <!-- Add once (e.g., near </head> or in your index.css) -->
+
 
 
   <!-- Abstract -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <div class="column is-30">
           <h2 class="title is-2">Abstract</h2>
-          <div class="content has-text-justified is-size-5">
+          <div class="content has-text-justified is-size-4">
             <p>
                   In meta-learning and its downstream tasks, many methods rely on implicit adaptation to task variations, where multiple factors are mixed together in a single entangled representation. This makes it difficult to interpret which factors drive performance and can hinder generalization. In this work, we introduce a disentangled multi-context meta-learning framework that explicitly assigns each task factor to a distinct context vector. By decoupling these variations, our approach improves robustness through deeper task understanding and enhances generalization by enabling context vector sharing across tasks with shared factors. We evaluate our approach in two domains. First, on a sinusoidal regression task, our model outperforms baselines on out-of-distribution tasks and generalizes to unseen sine functions by sharing context vectors associated with shared amplitudes or phase shifts. Second, in a quadruped robot locomotion task, we disentangle the robot-specific properties and the characteristics of the terrain in the robot dynamics model. By transferring disentangled context vectors acquired from the dynamics model into reinforcement learning, the resulting policy achieves improved robustness under out-of-distribution conditions, surpassing the baseline that relies on a single unified context. Furthermore, by effectively sharing context, our model enables successful sim-to-real policy transfer to challenging terrains with out-of-distribution robot-specific properties, using just 20 seconds of real data from flat terrain, which is not achievable with single-task adaptation.
             </p>
@@ -199,18 +253,18 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Locomotion at Low P gain (OOD)</h2>
+      <h2 class="title is-3">Locomotion at Low P gain (Out-Of-Distribution)</h2>
 
-      <div class="columns is-variable is-3 is-multiline">
+      <div class="columns is-variable is-6 is-multiline">
         <!-- Video 1 -->
         <div class="column is-one-third-desktop is-full-mobile">
           <figure class="image">
-            <video class="has-ratio" autoplay muted loop controls playsinline style="width:100%; border-radius:8px;">
+            <video class="has-ratio" autoplay muted loop controls playsinline style="width:100%; border-radius:20px;">
               <source src="static/videos/MultiLowP.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <figcaption class="has-text-centered has-text-grey is-size-7" style="margin-top:0.4rem;">
-              Multi-DMCM model - Robust
+            <figcaption class="has-text-centered has-text-grey is-size-4" style="margin-top:0.4rem;">
+              Multi-DMCM policy - 80% Success
             </figcaption>
           </figure>
         </div>
@@ -218,12 +272,12 @@
         <!-- Video 2 -->
         <div class="column is-one-third-desktop is-full-mobile">
           <figure class="image">
-            <video class="has-ratio" autoplay muted loop controls playsinline style="width:100%; border-radius:8px;">
+            <video class="has-ratio" autoplay muted loop controls playsinline style="width:100%; border-radius:20px;">
               <source src="static/videos/VanilaLowP.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <figcaption class="has-text-centered has-text-grey is-size-7" style="margin-top:0.4rem;">
-              Vanilla Baseline (Low-P)
+            <figcaption class="has-text-centered has-text-grey is-size-4" style="margin-top:0.4rem;">
+              Vanilla Baseline policy - 40% Success
             </figcaption>
           </figure>
         </div>
@@ -231,12 +285,12 @@
         <!-- Video 3 -->
         <div class="column is-one-third-desktop is-full-mobile">
           <figure class="image">
-            <video class="has-ratio" autoplay muted loop controls playsinline style="width:100%; border-radius:8px;">
+            <video class="has-ratio" autoplay muted loop controls playsinline style="width:100%; border-radius:20px;">
               <source src="static/videos/SingleLowPSIm.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <figcaption class="has-text-centered has-text-grey is-size-7" style="margin-top:0.4rem;">
-              Single-Context (Low-P Sim)
+            <figcaption class="has-text-centered has-text-grey is-size-4" style="margin-top:0.4rem;">
+              Single-CAVIA policy - 0% Success
             </figcaption>
           </figure>
         </div>
